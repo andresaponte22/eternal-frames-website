@@ -238,10 +238,9 @@
       <!-- Portfolio grid — 2 large cinematic cards -->
       <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
 
-        <!-- Portfolio Card 1 -->
-        <!-- REPLACE: Set data-video-url to your YouTube/Vimeo embed URL, add a real thumbnail -->
-        <div class="video-card group relative aspect-[16/10] rounded-sm overflow-hidden cursor-pointer" data-video-url="" data-animate-scale>
-          <div class="absolute inset-0 bg-gradient-to-br from-charcoal via-warmgray/40 to-charcoal"></div>
+        <!-- Portfolio Card 1 — Vanessa & Justin -->
+        <div class="video-card group relative aspect-[16/10] rounded-sm overflow-hidden cursor-pointer" data-video-url="https://www.youtube.com/embed/Pa3nQEK2DuA" onclick="openVideoModal(this)" data-animate-scale>
+          <img src="https://img.youtube.com/vi/Pa3nQEK2DuA/maxresdefault.jpg" alt="Vanessa & Justin wedding film" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
           <div class="card-overlay absolute inset-0 bg-richblack/30 group-hover:bg-richblack/50 transition-all duration-500"></div>
 
           <!-- Play Button with pulse -->
@@ -257,8 +256,8 @@
           <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
             <div class="flex items-end justify-between">
               <div>
-                <p class="font-display text-2xl lg:text-3xl font-light text-pearl mb-1">Sarah & James</p>
-                <p class="text-pearl/50 text-[12px] tracking-[0.15em] uppercase font-light">Summer 2025</p>
+                <p class="font-display text-2xl lg:text-3xl font-light text-pearl mb-1">Vanessa & Justin</p>
+                <p class="text-pearl/50 text-[12px] tracking-[0.15em] uppercase font-light">Spring 2025</p>
               </div>
               <div class="w-8 h-[1px] bg-dustyrose/60 mb-3 hidden sm:block"></div>
             </div>
@@ -266,8 +265,9 @@
         </div>
 
         <!-- Portfolio Card 2 -->
-        <div class="video-card group relative aspect-[16/10] rounded-sm overflow-hidden cursor-pointer" data-video-url="" data-animate-scale>
-          <div class="absolute inset-0 bg-gradient-to-br from-warmgray/30 via-charcoal to-richblack"></div>
+        <!-- Portfolio Card 2 — Natalia & Amadeusz -->
+        <div class="video-card group relative aspect-[16/10] rounded-sm overflow-hidden cursor-pointer" data-video-url="https://www.youtube.com/embed/7YjDpB7b9QY" onclick="openVideoModal(this)" data-animate-scale>
+          <img src="https://img.youtube.com/vi/7YjDpB7b9QY/maxresdefault.jpg" alt="Natalia & Amadeusz wedding film" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
           <div class="card-overlay absolute inset-0 bg-richblack/30 group-hover:bg-richblack/50 transition-all duration-500"></div>
 
           <!-- Play Button with pulse -->
@@ -283,8 +283,8 @@
           <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
             <div class="flex items-end justify-between">
               <div>
-                <p class="font-display text-2xl lg:text-3xl font-light text-pearl mb-1">Emily & Michael</p>
-                <p class="text-pearl/50 text-[12px] tracking-[0.15em] uppercase font-light">Fall 2025</p>
+                <p class="font-display text-2xl lg:text-3xl font-light text-pearl mb-1">Natalia & Amadeusz</p>
+                <p class="text-pearl/50 text-[12px] tracking-[0.15em] uppercase font-light">Winter 2025</p>
               </div>
               <div class="w-8 h-[1px] bg-dustyrose/60 mb-3 hidden sm:block"></div>
             </div>
@@ -555,9 +555,52 @@
   </footer>
 
   <!-- ============================================ -->
+  <!-- VIDEO LIGHTBOX MODAL -->
+  <!-- ============================================ -->
+  <div id="video-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-richblack/95 backdrop-blur-sm" onclick="closeVideoModal(event)">
+    <!-- Close button -->
+    <button onclick="closeVideoModal()" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-pearl/60 hover:text-pearl transition-colors z-10" aria-label="Close video">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <!-- Video container -->
+    <div class="w-full max-w-5xl mx-4 aspect-video" onclick="event.stopPropagation()">
+      <iframe id="video-iframe" class="w-full h-full rounded-sm" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
   <!-- SCRIPTS -->
   <!-- ============================================ -->
   <script>
+    // Video Lightbox Modal
+    function openVideoModal(card) {
+      const url = card.getAttribute('data-video-url');
+      if (!url) return;
+      const modal = document.getElementById('video-modal');
+      const iframe = document.getElementById('video-iframe');
+      iframe.src = url + '?autoplay=1&rel=0';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoModal(event) {
+      if (event && event.target !== event.currentTarget) return;
+      const modal = document.getElementById('video-modal');
+      const iframe = document.getElementById('video-iframe');
+      iframe.src = '';
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeVideoModal();
+    });
+
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
