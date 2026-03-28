@@ -115,6 +115,19 @@ html {
   width: 0;
 }
 
+/* Gallery Photo Frame */
+.photo-frame {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+.photo-frame img {
+  transition: scale 0.6s ease;
+}
+
+.photo-frame:hover img {
+  scale: 1.05;
+}
+
 /* Video Card Hover Effects */
 .video-card {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
