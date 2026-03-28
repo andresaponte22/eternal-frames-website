@@ -164,51 +164,29 @@
   <!-- ABOUT SECTION -->
   <!-- ============================================ -->
   <section id="about" class="py-24 lg:py-36 bg-cream-50">
-    <div class="max-w-7xl mx-auto px-8 lg:px-12">
-      <div class="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+    <div class="max-w-2xl mx-auto px-8 lg:px-12 text-center">
+      <div data-animate>
+        <p class="font-body text-[11px] tracking-[0.4em] uppercase text-dustyrose mb-6">The Storytellers</p>
 
-        <!-- Image column (offset for asymmetry) -->
-        <div class="lg:col-span-5 lg:col-start-1" data-animate-left>
-          <!-- REPLACE: Swap this placeholder with your photo -->
-          <div class="relative">
-            <div class="aspect-[3/4] rounded-sm bg-gradient-to-br from-cream-200 via-dustyrose/10 to-cream-100 photo-frame overflow-hidden">
-              <!-- Placeholder camera icon -->
-              <div class="absolute inset-0 flex items-center justify-center">
-                <svg class="w-16 h-16 text-cream-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/>
-                </svg>
-              </div>
-            </div>
-            <!-- Decorative accent -->
-            <div class="absolute -bottom-4 -right-4 w-full h-full border border-dustyrose/20 rounded-sm -z-10"></div>
-          </div>
-        </div>
+        <h2 class="font-display text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.15] mb-8">
+          Capturing love,<br>
+          <span class="italic">one frame</span><br>
+          at a time
+        </h2>
 
-        <!-- Text column -->
-        <div class="lg:col-span-6 lg:col-start-7" data-animate-right>
-          <p class="font-body text-[11px] tracking-[0.4em] uppercase text-dustyrose mb-6">The Storytellers</p>
+        <div class="w-12 h-[1px] bg-dustyrose/50 mb-8 mx-auto"></div>
 
-          <h2 class="font-display text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.15] mb-8">
-            Capturing love,<br>
-            <span class="italic">one frame</span><br>
-            at a time
-          </h2>
+        <p class="text-soft leading-[1.8] mb-5 text-[15px]">
+          We believe every wedding is a once-in-a-lifetime story, full of laughter, tears, stolen glances, and unforgettable moments. Our passion is capturing those fleeting emotions and turning them into films you'll watch again and again.
+        </p>
+        <p class="text-soft leading-[1.8] mb-10 text-[15px]">
+          With a cinematic eye and a genuine love for love itself, we work quietly in the background so you can be fully present on your big day, knowing every meaningful moment is being preserved.
+        </p>
 
-          <div class="w-12 h-[1px] bg-dustyrose/50 mb-8"></div>
-
-          <p class="text-soft leading-[1.8] mb-5 text-[15px]">
-            We believe every wedding is a once-in-a-lifetime story, full of laughter, tears, stolen glances, and unforgettable moments. Our passion is capturing those fleeting emotions and turning them into films you'll watch again and again.
-          </p>
-          <p class="text-soft leading-[1.8] mb-10 text-[15px]">
-            With a cinematic eye and a genuine love for love itself, we work quietly in the background so you can be fully present on your big day, knowing every meaningful moment is being preserved.
-          </p>
-
-          <a href="#contact"
-             class="btn-primary inline-block bg-transparent border border-charcoal/20 hover:border-dustyrose hover:bg-dustyrose/5 text-charcoal font-body text-[12px] tracking-[0.2em] uppercase px-8 py-3.5 transition-all duration-500">
-            Get In Touch
-          </a>
-        </div>
+        <a href="#contact"
+           class="btn-primary inline-block bg-transparent border border-charcoal/20 hover:border-dustyrose hover:bg-dustyrose/5 text-charcoal font-body text-[12px] tracking-[0.2em] uppercase px-8 py-3.5 transition-all duration-500">
+          Get In Touch
+        </a>
       </div>
     </div>
   </section>
@@ -429,8 +407,15 @@
         </div>
 
         <!-- Right — Contact Form -->
-        <!-- REPLACE: Sign up at https://formspree.io and replace YOUR_FORM_ID -->
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6" data-animate-right>
+        <div id="form-success" class="hidden flex-col items-center justify-center text-center py-16 space-y-6">
+          <div class="w-12 h-[1px] bg-dustyrose/50 mx-auto"></div>
+          <h3 class="font-display text-3xl lg:text-4xl font-light text-charcoal">Thank you.</h3>
+          <p class="text-soft text-[15px] leading-[1.8]">We received your message and will be in touch soon.</p>
+          <div class="w-12 h-[1px] bg-dustyrose/50 mx-auto"></div>
+        </div>
+        <p id="form-error" class="hidden text-[13px] text-red-400 mb-4">Something went wrong. Please try again or email us directly.</p>
+        <form id="contact-form" action="https://formspree.io/f/xlgogype" method="POST" class="space-y-6" data-animate-right>
+          <input type="hidden" name="_subject" value="New inquiry — Eternal Frames">
           <div>
             <label for="name" class="block text-[12px] tracking-[0.1em] uppercase text-soft mb-3">Your Name</label>
             <input type="text" id="name" name="name" required
@@ -558,6 +543,34 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeVideoModal();
     });
+
+    // Contact Form — AJAX submission via Formspree
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formError = document.getElementById('form-error');
+        const formSuccess = document.getElementById('form-success');
+        formError.classList.add('hidden');
+        try {
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { Accept: 'application/json' }
+          });
+          if (response.ok) {
+            contactForm.reset();
+            contactForm.classList.add('hidden');
+            formSuccess.classList.remove('hidden');
+            formSuccess.classList.add('flex');
+          } else {
+            formError.classList.remove('hidden');
+          }
+        } catch {
+          formError.classList.remove('hidden');
+        }
+      });
+    }
 
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menu-toggle');
